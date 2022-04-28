@@ -1,0 +1,57 @@
+{
+  "name": "gather-autodoor",
+  "version": "1.0.0-alpha.0",
+  "description": "A Gather Town app that powers an automatic door mechanism.",
+  "type": "module",
+  "engines": {
+    "node": "14.17.6"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/jest": "~27.4",
+    "@types/node": "~14.17",
+    "@typescript-eslint/eslint-plugin": "~5.14",
+    "@typescript-eslint/parser": "~5.14",
+    "dotenv": "^16.0.0",
+    "eslint": "~8.11",
+    "eslint-config-prettier": "~8.5",
+    "eslint-plugin-jest": "~26.1",
+    "jest": "~27.5",
+    "nodemon": "^2.0.15",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0",
+    "prettier": "~2.5",
+    "rimraf": "~3.0",
+    "ts-jest": "~27.1",
+    "tsutils": "~3.21",
+    "typescript": "~4.6"
+  },
+  "scripts": {
+    "start": "nodemon --experimental-modules --es-module-specifier-resolution=node build/src/main.js",
+    "clean": "rimraf coverage build tmp",
+    "prebuild": "npm run lint",
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "tsc -w -p tsconfig.json",
+    "build:release": "npm run clean && tsc -p tsconfig.release.json",
+    "lint": "eslint . --ext .ts",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "postinstall": "patch-package"
+  },
+  "author": "Assembless <support@assembless.tech>",
+  "license": "MIT",
+  "dependencies": {
+    "@gathertown/gather-game-client": "^37.0.1",
+    "chalk": "^5.0.1",
+    "node-fetch": "^3.2.3",
+    "ora": "^6.1.0",
+    "tslib": "~2.3.1"
+  },
+  "peerDependencies": {
+    "@types/websocket": "^1.0.5",
+    "websocket": "^1.0.34"
+  },
+  "volta": {
+    "node": "14.17.6"
+  }
+}
