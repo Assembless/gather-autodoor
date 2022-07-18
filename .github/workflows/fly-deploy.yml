@@ -19,8 +19,3 @@ jobs:
         - uses: actions/checkout@v2
         - uses: superfly/flyctl-actions/setup-flyctl@master
         - run: flyctl deploy --remote-only
-          with:
-            gather-api-key: $GATHER_API_KEY
-            gather-space-id: $GATHER_SPACE_ID
-            gather-map-id: $GATHER_MAP_ID
-            uptime-robot-api-key: $UPTIME_ROBOT_API_KEY
