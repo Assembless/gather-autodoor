@@ -24,6 +24,14 @@ import config from './config';
     name: "Krzysztof",
     gatherId: "H4wSnVqIjUYk7EQoY0IDFMEjSXY2",
   },
+  {
+    name: "Ekikere-abasi Michael",
+    gatherId: "6n9vDhhOenU90W3ZulnvOaZX3Nf1",
+  },
+  {
+    name: "David Ohis",
+    gatherId: "ZgNJTP93v8XQq3Hx7TaMNR4I28U2"
+  }
 ];
 
 async function main () {
@@ -74,6 +82,7 @@ async function main () {
   
         if(!isMember) {
           gatherClient.chat(c.playerId, [], "rw-6", { contents: "You are not a member of Assembless!" });
+          gatherClient.fxShakeObject("rw-6", object.obj.id, 250, 2000);
   
           return;
         }
@@ -112,6 +121,20 @@ async function main () {
       }
     });
   })
+
+  // setTimeout(async () => {
+  //   // Find all indicator objects.
+  //   console.log(Object.keys(gatherClient!.completeMaps['rw-6'].objects).filter((x) => {
+  //     const obj = gatherClient!.completeMaps['rw-6'].objects[x];
+      
+  //     if(obj.id.indexOf("Bar") > -1) {
+  //       console.log(obj);
+  //       return true;
+  //     }
+
+  //     return false;
+  //   }));
+  // }, 5000)
 
   // Logic
   const doors = await Promise.all([
