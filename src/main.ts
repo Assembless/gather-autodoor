@@ -30,7 +30,7 @@ import config from './config';
   },
   {
     name: "David Ohis",
-    gatherId: "ZgNJTP93v8XQq3Hx7TaMNR4I28U2"
+    gatherId: "uLYzZBPu18eoeQUaZItkU0YcAh73"
   }
 ];
 
