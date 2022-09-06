@@ -1,6 +1,7 @@
 import { Game } from "@gathertown/gather-game-client";
 import ora from 'ora';
 import config from './config';
+import * as http from 'http';
 
 /**
  * *Astronauts*
@@ -29,10 +30,24 @@ import config from './config';
     gatherId: "6n9vDhhOenU90W3ZulnvOaZX3Nf1",
   },
   {
-    name: "David Ohis",
+    name: "David",
     gatherId: "uLYzZBPu18eoeQUaZItkU0YcAh73"
+  },
+  {
+    name: "Łukasz",
+    gatherId: "UqG12OCQhEYSR37Fa0zXz9x8SUF2"
   }
 ];
+
+// Used for health check.
+const healthServerListener = () => {
+  const server = http.createServer((_req, res) => {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("healthy");
+    console.info("Health listener started.")
+  });
+  server.listen(8080);
+}
 
 async function main () {
   console.log("Starting...");
@@ -42,7 +57,7 @@ async function main () {
   await gatherClient.connect();
 
   await new Promise(resolve => setTimeout(resolve, 5000));
-
+  healthServerListener();
   spinner.stop();
   console.clear();
   console.log("The Gather API Client is running!");

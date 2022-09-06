@@ -36,7 +36,8 @@
     "lint": "eslint . --ext .ts",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "deploy": "yarn build && flyctl deploy --remote-only"
   },
   "author": "Assembless <support@assembless.tech>",
   "license": "MIT",
